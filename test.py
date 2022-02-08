@@ -1,8 +1,8 @@
 import sys
-num=int(input())
+num=int(sys.stdin.readline())
 l=[]; c=[0]*8001
 for _ in range(num):
-    n=int(input())
+    n=int(sys.stdin.readline())
     l.append(n)
     c[n+4000]+=1
 l.sort()
