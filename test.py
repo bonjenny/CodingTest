@@ -8,7 +8,7 @@ for i in range(k):
 
 start=1
 end=max(l)
-gi
+
 while start <= end:
     mid=(start+end)//2
     value=0
