@@ -1,22 +1,23 @@
 while True:
-    ip=input()
-    if ip=='.': break
-    if ip.count('[')==ip.count(']') and \
-        ip.count('(')==ip.count(')'):
-        ip=list(ip)
-        try:
-            if ip.index('[')<=ip.index(']') and \
-                ip.index('(')<=ip.index(')'):
-                print('yes')
-            else: print('no')
-        except:
-            if ip.count('[')==0 and ip.count('(')!=0:
-                if ip.index('(')<=ip.index(')'):
-                    print('yes')
-                else: print('no')
-            elif ip.count('(')==0 and ip.count('[')!=0:
-                if ip.index('[')<=ip.index(']'):
-                    print('yes')
-                else: print('no')
-            else: print('yes')
+    x=input()    
+    if x=='.': break
+
+    xl=list(x)
+    x_set={'(',')','[',']'}
+    xl=[i for i in xl if i in x_set]
+    
+    l=[]
+    for i in xl:
+        if i=='(' or i=='[':
+            l.append(i)
+        elif i==')':
+            if len(l)==0: l.append(i)
+            elif l[-1]=='(': l.pop()
+            else: l.append(i)
+        elif i==']':
+            if len(l)==0: l.append(i)
+            elif l[-1]=='[': l.pop()
+            else: l.append(i)
+    
+    if len(l)==0: print('yes')
     else: print('no')
