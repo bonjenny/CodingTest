@@ -1,45 +1,31 @@
 n=int(input())
 
-il=[]
-for _ in range(n):
-    il.append(int(input()))
+def rcs(num):
+    if num==0: return;
+    elif num==1: 
+        for i in range(n+1-num): print('____', end='')
+        print('''"재귀함수가 뭔가요?"''')
+        for i in range(n+1-num): print('____', end='')
+        print('"재귀함수는 자기 자신을 호출하는 함수라네"')
+        for i in range(n+1-num): print('____', end='')
+        print('라고 답변하였지.')
+    else:
+        for i in range(n+1-num): print('____', end='')
+        print('''"재귀함수가 뭔가요?"''')
+        for i in range(n+1-num): print('____', end='')
+        print('''"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어.''')
+        for i in range(n+1-num): print('____', end='')
+        print('마을 사람들은 모두 그 선인에게 수많은 질문을 했고, 모두 지혜롭게 대답해 주었지.')
+        for i in range(n+1-num): print('____', end='')
+        print('''그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어."''')
+        rcs(num-1)
+        for i in range(n+1-num): print('____', end='')
+        print('라고 답변하였지.')
 
-#과정리스트에 넣을 리스트
-nl=[i for i in range(1,n+1)]
-nn=0
-rl=[] #결과 +- 넣을 리스트
-
-#과정리스트
-l=[]
-#x만큼 +
-for i in range(1, il[0]+1):
-    l.append(nl[nn]);nl[nn]=0;nn+=1
-    rl.append('+')
-l.pop();rl.append('-')
-
-try:
-    for i in range(1, n):
-        
-        # 4->3 등 pop해야하는 경우
-        if il[i]==il[i-1]-1:
-            l.pop();rl.append('-')
-        
-        # 6등 6 나오기 전까지 push해야하는 경우
-        elif il[i]>il[i-1]:
-            for j in range(nl[nn], il[i]+1):
-                l.append(nl[nn]);nl[nn]=0;nn+=1
-                rl.append('+')
-            l.pop();rl.append('-')
-        
-        # 8까지 모든 수를 다 넣은 뒤 pop해야하는 경우
-        elif nl.count(0)==n:
-            l.pop();rl.append('-')
-        
-        #예외처리
-        else: print('NO'); rl=[]; break
-except: print('NO')
-
-#결과리스트 출력
-else:
-    for i in rl:
-        print(i)
+print('''어느 한 컴퓨터공학과 학생이 유명한 교수님을 찾아가 물었다.
+"재귀함수가 뭔가요?"
+"잘 들어보게. 옛날옛날 한 산 꼭대기에 이세상 모든 지식을 통달한 선인이 있었어.
+마을 사람들은 모두 그 선인에게 수많은 질문을 했고, 모두 지혜롭게 대답해 주었지.
+그의 답은 대부분 옳았다고 하네. 그런데 어느 날, 그 선인에게 한 선비가 찾아와서 물었어."''')
+rcs(n)
+print('라고 답변하였지.')
