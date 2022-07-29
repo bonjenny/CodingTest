@@ -1,10 +1,14 @@
-n=int(input())
+def rcs(n):
+  if n==1: return ['*']
 
-def hanoi(fr, to, ex, num):
-    if num==1: print(fr, to); return
-    hanoi(fr, ex, to, num-1)
-    print(fr, to)
-    hanoi(ex, to, fr, num-1)
+  Stars=rcs(n//3)
+  L=[]
 
-print(2**n-1)
-hanoi(1, 3, 2, n)
+  for star in Stars: L.append(star*3)
+  for star in Stars: L.append(star+' '*(n//3)+star)
+  for star in Stars: L.append(star*3)
+
+  return L
+
+N=int(input())
+print('\n'.join(rcs(N)))
