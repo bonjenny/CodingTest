@@ -1,3 +1,2 @@
-# Baekjoon Online Judge(BOJ) Profile
+# [Baekjoon Online Judge(BOJ)](https://www.acmicpc.net/user/bonjenny) Profile
 Coding Test TIL with Python \
-https://www.acmicpc.net/user/bonjenny
