@@ -1,5 +1,4 @@
 import sys
-
 n, m = map(int, sys.stdin.readline().split())
 l = list(map(int, sys.stdin.readline().split()))
 
