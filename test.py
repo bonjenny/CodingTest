@@ -9,6 +9,7 @@ high = max(l)
 while True:
     h = int((low + high) / 2)
     sum = 0
+
     for i in l:
         temp = i - h
         if temp < 0: i = 0
