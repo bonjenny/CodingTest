@@ -18,7 +18,9 @@ while True:
     if sum == m or low > high:
         print(h)
         break
+
     elif sum > m:
         low = h + 1
+
     else:
         high = h - 1
