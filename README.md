@@ -1,2 +1,2 @@
-# [Baekjoon Online Judge](https://www.acmicpc.net/user/bonjenny) Profile
+# [Baekjoon Online Judge Profile](https://www.acmicpc.net/user/bonjenny)
 Coding Test study with Python
