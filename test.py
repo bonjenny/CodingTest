@@ -5,7 +5,6 @@ l = list(map(int, sys.stdin.readline().split()))
 low = 0
 high = max(l)
 
-
 while True:
     h = int((low + high) / 2)
     sum = 0
