@@ -23,5 +23,4 @@ while True:
     elif sum > m:
         low = h + 1
 
-    else:
-        high = h - 1
+    else: high = h - 1
