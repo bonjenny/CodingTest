@@ -14,7 +14,6 @@ function solution(genres, plays) {
                 index: [i]
             };
     }
-    // console.log(obj);
     
     let stack = [];
     for (key of Object.keys(obj)) {
@@ -23,28 +22,28 @@ function solution(genres, plays) {
             ...obj[key]
         });
     }
-    // console.log(stack);
     
     let sorted = stack.sort(function(a, b) {
         return b.sum - a.sum;
     });
-    // console.log(sorted);
     
     let answer = [];
     for (i=0; i<sorted.length; i++) {
         stack = [];
         for (key of sorted[i].index) {
             stack.push({index: key, plays: plays[key]})
-            // console.log(stack);
         }
         stack = stack.sort(function(a, b) {
             return b.plays - a.plays
         });
-        console.log(stack);
-        for (let j=0; j<2; j++) {
-            answer.push(stack[j].index);
+        if (stack.length >= 2) {
+            for (let j=0; j<2; j++) {
+                answer.push(stack[j].index);
+            }
         }
-        console.log(answer);
+        else {
+            answer.push(stack[0].index);
+        }
     }
     return answer;
 }
