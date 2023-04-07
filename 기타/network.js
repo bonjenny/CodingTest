@@ -1,37 +1,30 @@
 function solution(n, computers) {
     let answer = 0;
-    let stack = [];
-    let s;
-    let temp = [];
-    let flag = [];
+    let i, j;
+    const n_stack = Array.from({length: n}, (v, i) => i);
     
-    for (let i=0; i<computers.length; i++) {
-        s = new Set([i]);
-        for (let j=i+1; j<computers[i].length; j++) {
-            if (computers[i][j] === 1) { s.add(j); }
-        }
-        
-        if (stack.length === 0) { stack.push(s); continue; }
-        flag = [];
-        
-        for (j=0; j<stack.length; j++) {
-            // console.log(i, '비교:', stack[j], s, [...stack[j]].filter(x => s.has(x)));
-            if ([...stack[j]].filter(x => s.has(x)).length !== 0) {
-                temp = [...stack[j]];
-                stack[j] = new Set([...s, ...temp]);
-                flag.push(j);
-                // console.log(flag);
+    let line = [0];
+    for (i=0; i<line.length; i++) {
+        for (j=0; j<computers[line[i]].length; j++) {
+            if (line[i] !== j && !line.includes(j) && computers[line[i]][j] === 1) {
+                line.push(j);
             }
         }
-        
-        if (flag.length === 0) { stack.push(s); }
-        else {
-            for (j=0; j<flag.legnth; j++) {
-                // console.log('얍!');
+    }
+    console.log(line);
+    
+    let diff = n_stack.filter(x => !line.includes(x));
+    if (diff.length === 0) return 1;
+    
+    for (i=0; i<diff.length; i++) {
+        for (j=0; j<computers[diff[i]].length; j++) {
+            console.log(diff[i], j, computers[diff[i]]);
+            if (diff[i] !== j && computers[diff[i]][j] === 1) {
+                console.log(i, j, computers[diff[i]][j]);
+                diff.push(j);
             }
         }
     }
     
-    answer = stack.length;
     return answer;
 }
