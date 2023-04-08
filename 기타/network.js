@@ -1,37 +1,33 @@
 function solution(n, computers) {
-    let answer = 0;
-    let i, j, flag;
+    let i, j, count=0;
+    let flag = Array.from({length: n}).fill(0);
+    
     const n_stack = Array.from({length: n}, (v, i) => i);
+    let alone_stack = [];
+    let line_stack = [];
     
-    let line = [0];
-    for (i=0; i<line.length; i++) {
-        for (j=0; j<computers[line[i]].length; j++) {
-            if (line[i] !== j && !line.includes(j) && computers[line[i]][j] === 1) {
-                line.push(j);
+    const dfs = (line, computer) => {
+        for (let i=0; i<line.length; i++) {
+            for (let j=0; j<computer[line[i]].length; j++) {
+                if (line[i] !== j && !line.includes(j) && computer[line[i]][j] === 1) {
+                    line.push(j);
+                    flag[j] = 1;
+                }
+            }
+        } return [...new Set(line.sort((a, b) => a-b))];
+    };
+    
+    for (i=0; i<n; i++) {
+        line_stack = [];
+        if (flag[i] === 1) continue;
+        for (j=0; j<computers[i].length; j++) {
+            if (i !== j && computers[i][j] === 1) {
+                line_stack.push(j); flag[j] = 1;
             }
         }
+        dfs(line_stack, computers);
+        count++;
     }
-    console.log(line);
     
-    let diff = n_stack.filter(x => !line.includes(x));
-    if (diff.length === 0) return 1;
-    
-    let a_stack = new Set();
-    for (i=0; i<diff.length; i++) {
-        console.log(diff[i]);
-        flag = 0;
-        for (j=0; j<computers[diff[i]].length; j++) {
-            console.log(diff[i], j, computers[diff[i]]);
-            if (diff[i] !== j && computers[diff[i]][j] === 1) {
-                console.log(i, j, computers[diff[i]][j]);
-                flag = 1;
-                if (!diff.includes(j)) diff.push(j);
-            }
-        }
-        if (flag === 0) a_stack.add(diff[i]);
-    }
-    console.log('a_stack', a_stack);
-    
-    answer = a_stack.size + 1;
-    return answer;
+    return count;
 }
