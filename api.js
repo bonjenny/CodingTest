@@ -1,8 +1,8 @@
 export const API_END_POINT =
   "https://wr4a6p937i.execute-api.ap-northeast-2.amazonaws.com/dev";
 
-const request = async (url) => {
-  const res = await fetch(url);
+const request = async (url) => { // async
+  const res = await fetch(url); // await
 
   if (res.ok) {
     const json = await res.json();
