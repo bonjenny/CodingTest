@@ -1,7 +1,6 @@
 // App.js
 import SearchInput from "./SearchInput.js";
 import Suggestion from "./Suggestion.js";
-
 import { fetchLanguages } from "./api.js";
 
 
