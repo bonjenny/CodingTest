@@ -8,7 +8,6 @@ const request = async (url) => { // async
     const json = await res.json();
     return json;
   }
-
   throw new Error("요청에 실패함");
 };
 
