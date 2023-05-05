@@ -40,8 +40,7 @@ function solution(genres, plays) {
             for (let j=0; j<2; j++) {
                 answer.push(stack[j].index);
             }
-        }
-        else {
+        } else {
             answer.push(stack[0].index);
         }
     }
