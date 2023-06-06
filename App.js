@@ -3,7 +3,6 @@ import SearchInput from "./SearchInput.js";
 import Suggestion from "./Suggestion.js";
 import { fetchLanguages } from "./api.js";
 
-
 export default function App({ $target }) {
   this.state = {
     fetchedLanguages: [],
