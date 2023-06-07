@@ -3,7 +3,6 @@ export const API_END_POINT =
 
 const request = async (url) => { // async
   const res = await fetch(url); // await
-
   if (res.ok) {
     const json = await res.json();
     return json;
