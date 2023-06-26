@@ -1,5 +1,4 @@
 function solution(genres, plays) {
-    
     let obj = {};
     for (let i=0; i<genres.length; i++) {
         let genre = genres[i];
