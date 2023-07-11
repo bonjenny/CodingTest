@@ -37,7 +37,6 @@ export default function App({ $target }) {
       }
     },
   });
-
   const suggestion = new Suggestion({
     $target,
     initialState: {
