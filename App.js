@@ -14,6 +14,7 @@ export default function App({ $target }) {
       ...this.state,
       ...nextState,
     };
+    
     suggestion.setState({
       selectedIndex: 0,
       items: this.state.fetchedLanguages,
