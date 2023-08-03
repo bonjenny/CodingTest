@@ -5,6 +5,7 @@ function getPromise() {
   return fetch(newUrl)
   .then(response => response.json());
 }
+
 function searchInput() {
   let promise = getPromise();
   const getData = () => {
