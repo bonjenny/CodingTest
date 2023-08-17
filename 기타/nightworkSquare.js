@@ -15,5 +15,6 @@ function solution(n, works) {
     for (i=0; i<works.length; i++) {
         answer += works[i]**2;
     }
+    
     return answer;
 }
