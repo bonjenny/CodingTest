@@ -1,28 +1,8 @@
-import sys
+def fib(n):
+    return (0 if n == 0 else 1) if n <= 2 else fib(n-1) + fib(n-2)
 
-def mat_pow(mat, n):
-    if n == 0:
-        return mat
-    elif n == 1:
-        return mat
-    else:
-        tmp = mat_pow(mat, n//2)
-        if n % 2 == 0:
-            result = mul(tmp, tmp)
-        else:
-            a = [1, 1, 1, 0]
-            result = mul(mul(tmp, tmp), mat)
-    return result
+n = int(input()) # 17 입력
+print(fib(n)) # 결과는 1597
 
-
-def mul(a, b):
-    c = [(a[0] * b[0] + a[1] * b[2]) % 1000000007, (a[0] * b[1] + a[1] * b[3]) % 1000000007,
-         (a[2] * b[0] + a[3] * b[2]) % 1000000007, (a[2] * b[1] + a[3] * b[3]) % 1000000007]
-    return c
-
-
-# n = int(sys.stdin.readline().strip())
-n = int(input())
-mat = [1, 1, 1, 0]
-fibo = mat_pow(mat, n-1)
-print(fibo[0])
+# 문제 11444에서의 피보나치 배열
+# 0(0번째 피보나치 수), 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597(17번째 피보나치 수)
