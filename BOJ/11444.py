@@ -1,5 +1,11 @@
 def fib(n):
-    return (0 if n == 0 else 1) if n <= 2 else fib(n-1) + fib(n-2)
+    a = 1;
+    b = 1;
+    for i in range(3, n + 1):
+        c = a + b;
+        a = b;
+        b = c;
+    return b;
 
 n = int(input()) # 17 입력
 print(fib(n)) # 결과는 1597
